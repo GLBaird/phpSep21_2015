@@ -1,0 +1,3 @@
+RUN IN THE TERMINAL:
+
+sudo /Applications/XAMPP/xamppfiles/bin/mysql.server start  
