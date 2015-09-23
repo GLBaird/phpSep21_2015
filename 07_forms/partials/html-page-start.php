@@ -7,4 +7,6 @@
         <p><?php echo $pageSubtitle; ?></p>
     </header>
     
+    <?php require("html-menu.php");  ?>
+    
     <main>

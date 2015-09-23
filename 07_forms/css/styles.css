@@ -31,3 +31,34 @@ footer {
     color: #999;
     text-align: center;
 }
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: white;
+    display: block;
+    text-align: center;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav a {
+    display: block;
+    text-decoration: none;
+    color: #005;
+    padding: 0.5em 1em;
+    transition: all 0.5s;
+}
+
+nav a:hover {
+    color: red;    
+}
+
+@media screen and (max-width:460px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+}

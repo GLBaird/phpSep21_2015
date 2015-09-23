@@ -14,7 +14,7 @@ require("partials/html-page-start.php");
     <h2>Registration form</h2>
     <p>Please complete the following form:</p>
     
-    <form method="post" action="process.php">
+    <form method="post" action="process-register.php">
         <p>
             <label for="username">Username:</label>
             <input type="text" name="username" required>
