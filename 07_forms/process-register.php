@@ -20,7 +20,17 @@ if ($db->dbError) {
             // save information to database
             if (!$db->addUser($_POST["username"], $_POST["password"])) {
                 $error = "Error adding user.<br>".$db->dbError;
+            } else {
+                // see if image exists and save
+                if ( isset($_FILES["avatar"]) && strpos( $_FILES["avatar"]["type"], "image") !== false ) {
+                    if( !file_exists("uploads") ) {
+                        mkdir("uploads");
+                    }
+                    $filename = "uploads/".$_POST['username'];
+                    move_uploaded_file($_FILES["avatar"]["tmp_name"], $filename);
+                }
             }
+            
         } else {
             $error = "Password do not match";
         }

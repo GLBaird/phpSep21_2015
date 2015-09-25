@@ -57,6 +57,48 @@ nav a:hover {
     color: red;    
 }
 
+table.users {
+    table-layout: fixed;
+    width: 100%;
+    text-align: left;
+    border: 1px solid #444;
+    padding: 0;
+    border-collapse: collapse;
+}
+
+table.users th {
+    background: #116;
+    color: white;
+    font-weight: normal;
+}
+
+table.users td, table.users th {
+    border: 1px solid #444;
+    padding: 0.5em 1em;
+}
+
+table.users tbody tr:nth-child(even) {
+    background: white;
+}
+
+table.users tbody tr:nth-child(odd) {
+    background: #EEF;
+}
+
+div.avatar {
+    position: absolute;
+    top: 2em;
+    right: 5%;
+    background: white;
+    border: 2px solid black;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0,0,0, 0.5);
+    width: 5em;
+    height: 5em;
+    background-size: cover;
+    background-position: center;
+}
+
 @media screen and (max-width:460px) {
     header h1 {
         font-size: 1.5em;

@@ -76,9 +76,10 @@ class DatabaseController {
         }
         
         $_SESSION["userLoggedIn"] = true;
+        $_SESSION["username"] = $username;
         return true;
     }
-    
+
     function getUser($username) {
         $query = "SELECT * FROM users WHERE username='$username'";
         $results = $this->connection->query($query);

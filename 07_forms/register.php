@@ -14,7 +14,7 @@ require("partials/html-page-start.php");
     <h2>Registration form</h2>
     <p>Please complete the following form:</p>
     
-    <form method="post" action="process-register.php">
+    <form method="post" action="process-register.php" enctype="multipart/form-data">
         <p>
             <label for="username">Username:</label>
             <input type="text" name="username" required>
@@ -23,6 +23,10 @@ require("partials/html-page-start.php");
             <label for="password">Account password:</label>
             <input type="password" name="password" required>
             <input type="password" name="passwordConfirm" placeholder="Confirm password" required>
+        </p>
+        <p>
+            <label for="avatar">Choose an image for your avatar</label>
+            <input type="file" name="avatar">
         </p>
         <p>
             <input type="reset" value="Clear form">

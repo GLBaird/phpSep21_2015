@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>AJAX Demo</title>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+</head>
+
+<body>
+
+    <form id="demo">
+        <input type="text" id="username" placeholder="Username"><br>
+        <input type="password" id="password" placeholder="Password"><br>
+        <input type="submit" value="Submit">
+    </form>
+    
+    <textarea> </textarea>
+    
+    <p id="results"> </p>
+    
+    <ul id="users"> </ul>
+    
+    <script type="text/javascript">
+        
+        // get user list and display
+        $.ajax({
+            url:"users.php",
+            type:"GET",
+            dataType:"JSON",
+            success: function(users) {
+                var results = "";
+                for (var i in users) {
+                    var user = users[i];
+                    results += "<li>"+user.username+", "+user.password+"</li>";
+                }
+                 $("#users").html(results);
+            },
+            error: function(jqXHR, status, error) {
+                $("#users").html("<li>Error "+error+"</li>");
+            }
+        });
+        
+        
+        // send form data
+        $("form#demo").submit(function(event) {
+            
+            // cancel the browser from sending the form
+            event.preventDefault();
+            
+            var usernameData = $("#username").val();
+            var passwordData = $("#password").val();
+            
+            if (username == "" || password == "") {
+                $("#results").html("You must complete the form!");
+            } else {
+                $("#results").html("Submitting form...");
+                
+                // prepare data for sending
+                var preparedData = {
+                    username: usernameData,
+                    password: passwordData
+                };
+                
+                $.ajax({
+                    url: "process.php",
+                    type: "POST",
+                    dataType: "text",
+                    data: preparedData,
+                    success: function(data) {
+                        if (data == "success") {
+                            $("#results").html("Data submitted!");
+                            $("#username").val("");
+                            $("#password").val("");
+                        } else {
+                            $("#results").html("There has been an error! "+data);
+                        }
+                    },
+                    error: function(jqXHR, status, error) {
+                        $("#results").html("Server error: "+error);
+                    }
+                });
+            }
+            
+        });
+        
+    </script>
+    
+    
+</body>
+</html>

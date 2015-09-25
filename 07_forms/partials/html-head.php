@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php
+
+require_once("constants.php");
+error_reporting(0);
+session_start();
+error_reporting(ERROR_REPOT_SETTING);
+?>
 <!DOCTYPE html>
 
 <html>
